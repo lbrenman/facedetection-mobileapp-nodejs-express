@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Detection Test App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Face Detection Test App</h1>
+        <div class="form-group">
+            <label for="collectionSelect">Select Collection:</label>
+            <select id="collectionSelect"></select>
+        </div>
+        <div class="form-group">
+            <label for="newCollection">Create New Collection:</label>
+            <input type="text" id="newCollection" placeholder="Enter new collection ID">
+            <button id="createCollectionBtn">Create Collection</button>
+        </div>
+        <div class="form-group">
+            <button id="deleteCollectionBtn">Delete Current Collection</button>
+        </div>
+        <div class="form-group">
+            <label for="faceName">Add Face (use underscore instead of spaces):</label>
+            <input type="text" id="faceName" placeholder="Enter name">
+            <input type="file" id="faceImage" accept="image/*">
+            <button id="addFaceBtn">Add Face</button>
+        </div>
+        <div class="form-group">
+            <button id="detectFaceBtn">Detect Face</button>
+            <div id="detectedFaces"></div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
