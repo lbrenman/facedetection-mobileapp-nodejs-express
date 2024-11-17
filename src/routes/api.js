@@ -67,14 +67,14 @@ router.post('/addFace', upload.single('image'), async (req, res) => {
     }
 });
 
-// Detect faces in a collection
+// Detect face in a collection
 router.post('/detectFace', upload.single('image'), async (req, res) => {
     const { collectionId } = req.body;
     const image = req.file.buffer.toString('base64').replace(/^data:image\/\w+;base64,/, '');
     
     try {
         const response = await axios.post(
-            `${baseAddress}/detectface`,
+            `${baseAddress}/searchfacebyimage`,
             { collectionId, image },
             { headers: { 'x-api-key': apiKey, 'Content-Type': 'application/json' } }
         );
