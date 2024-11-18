@@ -74,7 +74,7 @@ router.post('/detectFace', upload.single('image'), async (req, res) => {
     
     try {
         const response = await axios.post(
-            `${baseAddress}/searchfacebyimage`,
+            `${baseAddress}/searchface`,
             { collectionId, image },
             { headers: { 'x-api-key': apiKey, 'Content-Type': 'application/json' } }
         );

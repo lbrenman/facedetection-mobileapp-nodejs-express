@@ -102,15 +102,15 @@ async function detectFace() {
 
     const data = await response.json();
 
+    console.log(data);
+
     const detectedFaces = document.getElementById('detectedFaces');
 
-    if (data.FaceMatches && data.FaceMatches.length > 0) {
-        const names = new Set();
-        data.FaceMatches.forEach(faceMatch => {
-            names.add(faceMatch.Face.ExternalImageId.replace(/_/g, ' '));
-        });
+    if (data && data.length > 0) {
+        const names = data.map(item => item.face.ExternalImageId.replace(/_/g, ' '));
+        const namesString = names.join(', ');
 
-        detectedFaces.innerHTML = `Detected faces: ${Array.from(names).join(', ')}`;
+        detectedFaces.innerHTML = `Detected faces: ${namesString}`;
     } else {
         detectedFaces.innerHTML = 'No faces detected';
     }
