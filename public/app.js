@@ -102,7 +102,7 @@ async function detectFace() {
 
     const data = await response.json();
 
-    console.log(data);
+    // console.log(data);
 
     const detectedFaces = document.getElementById('detectedFaces');
 
