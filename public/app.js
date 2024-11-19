@@ -102,12 +102,14 @@ async function detectFace() {
 
     const data = await response.json();
 
-    // console.log(data);
+    console.log(data);
 
     const detectedFaces = document.getElementById('detectedFaces');
 
     if (data && data.length > 0) {
-        const names = data.map(item => item.face.ExternalImageId.replace(/_/g, ' '));
+        const names = data
+            .filter(item => item.face) // Filter out elements without 'face' key
+            .map(item => item.face.ExternalImageId.replace(/_/g, ' '));
         const namesString = names.join(', ');
 
         detectedFaces.innerHTML = `Detected faces: ${namesString}`;
